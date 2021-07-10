@@ -1,0 +1,1 @@
+hello minna this nested text file in subfolder

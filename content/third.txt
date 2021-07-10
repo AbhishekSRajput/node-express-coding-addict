@@ -1,0 +1,2 @@
+here is the third file containing: "First txt file" and "hello this is the second text file" 
+here is the third file containing: "First txt file", "hello this is the second text file" 
