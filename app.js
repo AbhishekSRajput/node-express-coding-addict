@@ -1,7 +1,7 @@
-const { createReadStream } = require("fs");
+const express = require("express");
 
-const stream = createReadStream("./content/big.txt");
+const app = express();
 
-stream.on("data", (result) => {
-	console.log(result);
+app.listen(5000, () => {
+	console.log("server is listening at port 5000...");
 });
