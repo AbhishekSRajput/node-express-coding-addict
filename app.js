@@ -1,18 +1,21 @@
 const express = require("express");
-const path = require("path");
+
+//middleware functions
+const logger = require("./express-examples/middleware/logger");
+const authorize = require("./express-examples/middleware/authorize");
 
 const app = express();
 
-// setup static and middleware
-app.use(express.static("./express-examples/public"));
+app.use([authorize, logger]);
 
-// adding to static assets
-// server side rendering -ssr
+app.get("/", (req, res) => {
+	res.status(200).send("<h1>Home Page</h1>");
+});
 
-app.all("*", (req, res) => {
-	res.status(404).send("<h1>Resource you are looking for not found</h1>");
+app.get("/about", (req, res) => {
+	res.status(200).send("<h1>About Page</h1>");
 });
 
 app.listen(5000, () => {
-	console.log("server is listening at port 5000...");
+	console.log("App is listening to changes on port 5000");
 });
